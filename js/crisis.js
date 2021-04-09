@@ -37,7 +37,10 @@ var populate_crisis = function() {
                 $("#maincall").html("People are dying. They need your help!");
                 $("#secondarycall").html("Claim this mission now");
 
-                
+               
+                $("#update").click(function() {
+                    claim();
+                });
 
             } else {
                 
@@ -45,13 +48,14 @@ var populate_crisis = function() {
 
                 $("#maincall").html("This mission is already yours");
                 $("#secondarycall").html("We hopefully await its completion");
-
+                
+                $("#update").click(function() {
+                    updateStatus();
+                });
                 
             }
  
-            $("#update").click(function() {
-                updateStatus();
-            });
+            
 		
         },
         error: 
@@ -61,9 +65,26 @@ var populate_crisis = function() {
     });
 }
 
-var updateStatus = function() {
+var claim = function() {
     $.ajax({
         url: 'http://192.168.1.226:8080/herox/api/missions/' + id + '/claim/' + mid,
+        type: "PUT",
+        async: true,
+        dataType: 'json',
+        success: function () { 
+			location.replace(url + "?id=" + id + "&hash=" + hash);
+        },
+        error: 
+        function() {
+            location.replace(url + "?id=" + id + "&hash=" + hash);
+        }
+    });
+
+};
+
+var updateStatus = function() {
+    $.ajax({
+        url: 'http://192.168.1.226:8080/herox/api/missions/' + mid,
         type: "PUT",
         async: true,
         dataType: 'json',

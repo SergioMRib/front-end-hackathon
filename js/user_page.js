@@ -92,9 +92,14 @@ var populate_ongoing_missions = function() {
 
 			for (i = 0; i < missions.length; i ++) {
 				var mid = missions[i].id;
-				missionButtons += ('<div class="mission_container"><p class="mission_text" id="mission' + mid + '_text">' + missions[i].title + '</p>'
+				if (missions[i].missionStatus != "DONE") {
+					missionButtons += ('<div class="mission_container"><p class="mission_text" id="mission' + mid + '_text">' + missions[i].title + '</p>'
 					+ '<img src="' + missions[i].imgUrl + '" onclick="replace_page(' + mid + ')" class="mission" id="mission23_button"></img></div>')
-
+				}
+				else {
+					$("#ongoing_missions").html("");
+				}
+				
 			}
 
 			$(missionButtons).appendTo($(".ongoing_buttons_container"));
