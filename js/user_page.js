@@ -1,9 +1,12 @@
 var user_id = new URLSearchParams(window.location.search).get("id");
+var hash = new URLSearchParams(window.location.search).get("hash");
 var url= "crisis.html";
+
+console.log(user_id);
 
 var populate_header = function(){
     $.ajax({
-        url: 'http://192.168.1.226:8080/herox/api/' + user_id,
+        url: 'http://192.168.1.226:8080/herox/api/' + user_id + "?hash=" + hash,
         async: true,
         dataType: 'json',
         success: function (dataResponse) { 
@@ -18,7 +21,6 @@ var populate_header = function(){
 				'<div id="header_logo_container"><img class="logo" src="' + user.imageUrl + '"/></div>'
 				+ '<div id="header_description_container"><h2 class="white-text"><strong>' + user.name + '</strong></h2>'
 				+ '<h5 class="white-text">' + user.catchPhrase + '</h5></div><div id="header_menu_container">'
-				+ '<button class="btn" id="history">My history</button></div>'
 			);
 			
 			// clean hero html
@@ -32,8 +34,8 @@ var populate_header = function(){
 		
         },
         error: 
-        function(response, status) {
-            alert("Error: " + response);
+        function() {
+            location.replace("index.html");
         }
     });
 
@@ -63,7 +65,7 @@ var populate_missions = function() {
         },
         error: 
         function(response, status) {
-            alert("Error: " + response);
+            alert("The world is a messy place, so are our servers right now. Please refresh the page or try again later.");
         }
     });
 }
@@ -102,7 +104,7 @@ var populate_ongoing_missions = function() {
 }
 
 var replace_page = function(mid) {
-	location.replace(url + "?mid=" + mid + "&id=" + user_id);
+	location.replace(url + "?mid=" + mid + "&id=" + user_id + "&hash=" + hash);
 }
 
 /* testing the whole user info request situation with a local mock user

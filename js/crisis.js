@@ -1,6 +1,7 @@
 var url = "user_page.html";
 var mid = new URLSearchParams(window.location.search).get("mid");
 var id = new URLSearchParams(window.location.search).get("id");
+var hash = new URLSearchParams(window.location.search).get("hash");
 
 var populate_crisis = function() {
 	$.ajax({
@@ -34,19 +35,17 @@ var populate_crisis = function() {
 }
 
 var claim_mission = function() {
-    console.log("entrei na function caraaaaai!");
     $.ajax({
         url: 'http://192.168.1.226:8080/herox/api/missions/' + id + '/claim/' + mid,
         type: "PUT",
         async: true,
         dataType: 'json',
         success: function () { 
-            console.log("entrei no replace caraaaaai!");
-			location.replace(url + "?id=" + id);
+			location.replace(url + "?id=" + id + "&hash=" + hash);
         },
         error: 
-        function(response, status) {
-            location.replace(url + "?id=" + id);
+        function() {
+            location.replace(url + "?id=" + id + "&hash=" + hash);
         }
     });
 

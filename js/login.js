@@ -10,12 +10,13 @@ var login = function(){
         async: true,
         dataType: 'json',
         success: function (dataResponse) {
-			user_id = dataResponse; 
-            location.replace(url + "?id=" + dataResponse);
+			user_id = dataResponse.id; 
+            hash = dataResponse.hash;
+            location.replace(url + "?id=" + user_id + "&hash=" + hash);
         },
         error: 
-        function(response, status) {
-            alert("Error: " + response);
+        function() {
+            alert("We're sorry, aparently working for a super hero doesn't give you super memory. Try again! ");
         }
     });
 

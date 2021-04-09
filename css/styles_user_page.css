@@ -123,14 +123,11 @@ section {
 /* HEADER */
 
 #header {
-	/*
-	background: url(../images/bsbild_fullhd_01.jpg) no-repeat center center;
-	background-size: cover;
-	*/
 	height: 20vh;
 	padding-left: 10vw;
 	padding-right: 10vw;
 	display:flex;
+	justify-content: space-around;
 	background: url(../images/professor_bg_dark.jpg) no-repeat center center;
 	background-size: cover;
 }
@@ -150,14 +147,9 @@ section {
 }
 
 #header_description_container {
-	width: 60vw;
-	height: 100%;
-	margin-top: 10px;
-}
-
-#header_menu_container {
 	width: 20vw;
 	height: 100%;
+	margin-top: 10px;
 }
 
 #header .logo {
