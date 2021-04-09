@@ -14,17 +14,44 @@ var populate_crisis = function() {
 
 			$("#title").html("<strong>" + mission.title + "</strong>");
             $("#compensation").html("Compensation: " + mission.compensation + "€");
-            $("#description").html(mission.description);
-
+            
+            console.log(mission.missionStatus);
             var checkboxesString = "";
             var spec = mission.neededPowers.split(",");
 
-            for (i = 0; i < mission.neededSpecs.length; i ++) {
-				checkboxesString += ('<div class="form-check"><input class="form-check-input" type="checkbox" value="unchecked"">'
-                + '<label class="form-check-label" for="flexCheckDefault">' + spec[i] + '</label></div>')
-			}
+            if(mission.missionStatus == "READY"){
 
-            $(checkboxesString).appendTo($("#checkboxes"));
+                for (i = 0; i < mission.neededSpecs.length; i ++) {
+                    checkboxesString += ('<div class="form-check"><input class="form-check-input" type="checkbox" value="unchecked"">'
+                    + '<label class="form-check-label" for="flexCheckDefault">' + spec[i] + '</label></div>')
+                    
+                    $(checkboxesString).appendTo($("#checkboxes"));
+                }
+
+
+                $("#update").html("Claim mission")
+
+                
+
+                $("#description").html(mission.description);
+                $("#maincall").html("People are dying. They need your help!");
+                $("#secondarycall").html("Claim this mission now");
+
+                
+
+            } else {
+                
+                $("#update").html("Complete mission");
+
+                $("#maincall").html("This mission is already yours");
+                $("#secondarycall").html("We hopefully await its completion");
+
+                
+            }
+ 
+            $("#update").click(function() {
+                updateStatus();
+            });
 		
         },
         error: 
@@ -34,7 +61,7 @@ var populate_crisis = function() {
     });
 }
 
-var claim_mission = function() {
+var updateStatus = function() {
     $.ajax({
         url: 'http://192.168.1.226:8080/herox/api/missions/' + id + '/claim/' + mid,
         type: "PUT",
@@ -51,8 +78,6 @@ var claim_mission = function() {
 
 };
 
-$("#claim").click(function() {
-    claim_mission();
-});
+
 
 populate_crisis();

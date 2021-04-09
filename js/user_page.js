@@ -58,6 +58,10 @@ var populate_missions = function() {
 				missionButtons += ('<div class="mission_container"><p class="mission_text" id="mission' + mid + '_text">' + missions[i].title + '</p>'
 					+ '<img src="' + missions[i].imgUrl + '" onclick="replace_page(' + mid + ')" class="mission" id="mission23_button"></img></div>')
 
+				if((i + 1) % 3 == 0){
+					missionButtons += "<p></p>";
+				}
+
 			}
 
 			$(missionButtons).appendTo($(".available_buttons_container"));

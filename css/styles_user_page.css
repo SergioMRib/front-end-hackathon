@@ -190,6 +190,7 @@ section {
 
 .mission_buttons_container {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 }
 
@@ -231,6 +232,9 @@ section {
 	transition: 0.1s;
 }
 
+.mission_text {
+	margin-top: 20px;
+}
 
 	/* Animated Arrow Down Header */
 	
