@@ -63,7 +63,6 @@ h5 {
     font-weight: 300;
 }
 
-
 /* FORM GROUPS */
 
 .form-control {
@@ -78,6 +77,14 @@ h5 {
 
 .white-text {
 	color: #fff;
+}
+
+.white-text-user {
+	color: #fff;
+	font-weight: 600;
+	border: black;
+	text-shadow: black;
+	padding-top: 170px;
 }
 
 
@@ -244,6 +251,11 @@ section {
 	min-height: 430px;
 }
 
+#subscribe-crisis {
+	background: url(../images/ppg.png) no-repeat fixed center center / cover rgba(0, 0, 0, 0);
+	padding: 0px;
+	min-height: 430px;
+}
 
 #subscribe {
 	background: url(../images/bg-subscribe.jpg) no-repeat fixed center center / cover rgba(0, 0, 0, 0);
@@ -440,4 +452,8 @@ section {
 .white-text-crisis {
 	color: #fff;
 	font-weight: 900;
+}
+
+.crisis {
+		border-radius: 8px;
 }
