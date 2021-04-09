@@ -61,12 +61,12 @@
 					<h2 data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="white-text">Sign in</h2>
 					<h5 data-sr="enter bottom over 1s, wait 0.3s, move 24px, reset" class="white-text">Let's save the world together</h5>
 					<!-- FORM -->
-					<form id="mc_form" role="form">
-						<input data-sr="enter top over 1s, wait 0.3s, move 24px, reset" type="email" class="form-control" id="mc-email" name="mc-email" placeholder="Your Email" /><br><br>
-						<input data-sr="enter top over 1s, wait 0.3s, move 24px, reset" type="password" class="form-control" id="mc-password" name="mc-password" placeholder="Your Password" /><br><br>
-						<button data-sr="enter bottom over 1s, wait 0.3s, move 24px, reset" type="submit" class="button-leweb" >Get in</button>
+					<div id="mc_form" role="form">
+						<input data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="form-control" id="loginInput" name="mc-email" placeholder="Your Username" /><br><br>
+						<input data-sr="enter top over 1s, wait 0.3s, move 24px, reset" type="password" class="form-control" id="passwordInput" name="mc-password" placeholder="Your Password" /><br><br>
+						<button data-sr="enter bottom over 1s, wait 0.3s, move 24px, reset" class="button-leweb" id="submit_btn" >Get in</button>
 						<label for="mc-email" class="mc-email"></label> <!-- Ver o que é a label -->
-					</form>
+					</div>
 					<!-- FORM ENDS -->
 				</div>
 			</div>
@@ -138,6 +138,8 @@
 		<script src="js/scrollReveal.min.js"></script>
 		<!-- FUNCTIONS -->
 		<script src="js/functions.js"></script>
+	<!-- FUNCTIONS -->
+		<script src="js/login.js"></script>
 
 </body>
 </html>

@@ -239,14 +239,14 @@ section {
 /* SUBSCRIBE */
 
 #subscribe-crisis {
-	background: url(../images/911.jpg) no-repeat fixed center center / cover rgba(0, 0, 0, 0);
+	background: url(../images/911_dark.jpg) no-repeat fixed center center / cover rgba(0, 0, 0, 0);
 	padding: 0px;
 	min-height: 430px;
 }
 
 
 #subscribe {
-	background: url(../images/bg-subscribe.jpg) no-repeat fixed center center / cover rgba(0, 0, 0, 0);
+	background: url(../images/HardCoded.jpg) no-repeat fixed center center / cover rgba(0, 0, 0, 0);
 	padding: 0px;
 	min-height: 430px;
 }
